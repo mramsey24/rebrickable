@@ -2,9 +2,8 @@ package com.mvrsoftware.rebrickable.service;
 
 import com.mvrsoftware.rebrickable.model.BrickSet;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RebrickableServiceTest {
 
