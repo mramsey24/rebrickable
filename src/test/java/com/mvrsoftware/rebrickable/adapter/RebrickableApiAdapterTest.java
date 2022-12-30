@@ -21,12 +21,12 @@ public class RebrickableApiAdapterTest {
 
         //When
         Mono<String> resultMono = adapter.someRestCall("sets");
-        resultMono.doOnSuccess(response -> {
-            System.out.println(response);
-           // ClientResponse clientResponse = resultMono.
+       //resultMono.doOnSuccess(response -> {
+            //System.out.println(response);
+            //ClientResponse clientResponse = resultMono.
             //int statusCode = clientResponse.statusCode().value();
             //System.out.println("Status Code: " + statusCode);
-        }).subscribe();
+        //}).subscribe();
         //System.out.println(result.toString());
 
         //Then

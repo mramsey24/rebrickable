@@ -14,14 +14,20 @@ public class RebrickableApiAdapter {
     private final WebClient webClient;
 
     public RebrickableApiAdapter(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("https://rebrickable.com/api/v3/lego" + apiKey).build();
+        this.webClient = webClientBuilder.baseUrl("https://rebrickable.com/api/v3/lego").build();
     }
 
     public Mono<String> someRestCall(String name) {
-        return this.webClient.get()
+        Mono<String> responseMono = this.webClient.get()
                 .uri("/sets/?key="+apiKey)
                 .retrieve()
                 .bodyToMono(String.class);
+
+        responseMono.doOnNext(response -> {
+                    System.out.println(response);
+                }).subscribe();
+
+        return responseMono;
     }
     public BrickSet getSet(int setId) {
         BrickSet brickSet = new BrickSet();
